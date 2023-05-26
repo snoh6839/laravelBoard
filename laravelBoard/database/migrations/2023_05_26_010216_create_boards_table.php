@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title', 30);
+            $table->string('content', 2000);
+            $table->integer('hits');
+            $table->timestamps(); //created_at, updated_at
+            $table->softDeletes(); //deleted_at
         });
     }
 
