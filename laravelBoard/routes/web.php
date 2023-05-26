@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Boards;
+use App\Http\Controllers\BoardsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/boards', BoardsController::class);
