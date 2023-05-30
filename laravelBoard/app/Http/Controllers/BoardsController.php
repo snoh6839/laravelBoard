@@ -1,9 +1,17 @@
 <?php
+/*
+* Project Name : laravel_board
+* Directory    : Controllers
+* File Name    : BoardController.php
+* History      : v001 0525 SNoh Create
+*              : V002 0530 SNoh Check Validation
+*/
 
 namespace App\Http\Controllers;
 
 use App\Models\Boards;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BoardsController extends Controller
 {
