@@ -216,10 +216,18 @@ textarea {min-height: 30vh;}
 }
 
 
-.warning-msg {
+.warning-msg, .success-msg {
     margin: 10px 0;
     padding: 10px;
     border-radius: 3px 3px 3px 3px;
+}
+
+.warning-msg {
     color: #9F6000;
     background-color: #FEEFB3;
+}
+
+.success-msg {
+    color: #009f45;
+    background-color: #b3feb8;
 }
