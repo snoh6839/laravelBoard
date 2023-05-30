@@ -1,11 +1,11 @@
 <?php
-/*
+/************************************************
 * Project Name : laravel_board
 * Directory    : Controllers
 * File Name    : BoardController.php
 * History      : v001 0525 SNoh Create
 *              : V002 0530 SNoh Check Validation
-*/
+*************************************************/
 
 namespace App\Http\Controllers;
 
@@ -45,6 +45,15 @@ class BoardsController extends Controller
      */
     public function store(Request $req)
     {
+        // v002 add start
+        $req->validate(
+            [
+                'title' => 'required|between:3,30'
+                , 'content' => 'required|max:1000'
+            ]
+        );
+        // v002 add end
+
         $boards = new Boards(
             ['title' => $req->input('title')
             , 'content' => $req->input('content')
