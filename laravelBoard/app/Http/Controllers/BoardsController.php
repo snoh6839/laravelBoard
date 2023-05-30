@@ -10,8 +10,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Boards;
-use Illuminate\Http\Request;
+// use Dotenv\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BoardsController extends Controller
 {
@@ -71,6 +73,7 @@ class BoardsController extends Controller
      */
     public function show($id)
     {
+        
         $boards = Boards::find($id);
         $boards->hits++;
         $boards->save();
@@ -99,7 +102,34 @@ class BoardsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        // v002 add start
+        $arrId = ['id' => $id];
+        $req->merge($arrId);
+        // $req->req->add($arrId);
 
+        // $req->validate(
+        //     [
+        //         'id'        => 'required|integer'
+        //         ,'title'    => 'required|between:3,30'
+        //         , 'content' => 'required|max:1000'
+        //     ]
+        // );
+
+        $validator = Validator::make(
+            $req->only('id','title', 'content'),[
+                'id'        => 'required|integer'
+                , 'title'   => 'required|between:3,30'
+                , 'content' => 'required|max:1000'
+            ]
+        );
+        if($validator->fails()){
+            return redirect()
+                    ->back()
+                    ->withErrors($validator)
+                    ->withInput($req->only('title', 'content'));
+        }
+        
+        // v002 add end
         
         $result = Boards::find($id);
         $result->title = $req->title;

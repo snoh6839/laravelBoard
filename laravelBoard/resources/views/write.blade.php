@@ -12,16 +12,25 @@
     <header>
         <h1>BOARD WRITE</h1>
     </header>
-    
+    @if(count($errors) > 0)    
+        @foreach($errors->all() as $error)
+        <div class="warning-msg">
+            !!! Warning : {{ $error }} !!!
+        </div>
+        @endforeach
+    @endif
     <form class="contBox" action="{{route('boards.store')}}" method="post">
 
 
         @csrf
         <label for="title">제목</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" value="{{old('title')}}">
+
         <br>
         <label for="content">내용</label>
-        <textarea name="content" id="content"></textarea>
+        <textarea name="content" id="content">{{old('content')}}</textarea>
+
+
         <br>
         
         <button class="button" type="submit">작성하기</button>
