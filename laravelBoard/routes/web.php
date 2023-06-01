@@ -27,3 +27,8 @@ Route::post('/users/registrationpost', [UserController::class, 'registrationpost
 
 
 Route::resource('/boards', BoardsController::class);
+
+Route::get('/users/logout', [UserController::class, 'logout'])->name('users.logout');
+Route::get('/users/withdraw', [UserController::class, 'withdraw'])->name('users.withdraw');
+Route::get('/users/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::post('/users/edit', [UserController::class, 'editpost'])->name('users.edit.post');
