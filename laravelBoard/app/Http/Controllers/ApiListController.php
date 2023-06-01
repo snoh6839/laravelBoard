@@ -90,7 +90,6 @@ class ApiListController extends Controller
 
         $arr['errorcode'] = '0';
         $arr['msg'] = 'success';
-        $arr['data'] = null;
 
         return $arr;
     }
