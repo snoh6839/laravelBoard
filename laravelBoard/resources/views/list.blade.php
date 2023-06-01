@@ -10,9 +10,14 @@
 </head>
 <body>
 
-    <header>
-    <h1>BOARD LIST</h1>
-    </header>
+    @extends('layout.layout')
+
+    @section('title', 'List Page')
+
+    @section('header', 'List Page')
+
+@section('contents')
+
         <div class="contBox form">
 
             <table>
@@ -54,7 +59,7 @@
         </div>
         
 
-
+@endsection
 
 </body>
 </html>
