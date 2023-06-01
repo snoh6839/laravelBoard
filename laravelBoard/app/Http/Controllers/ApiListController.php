@@ -17,8 +17,8 @@ class ApiListController extends Controller
     function postlist(Request $req)
     {
         $validator = Validator::make($req->all(), [
-            'title' => 'required|string',
-            'content' => 'required|string'
+            'title' => 'required|between:3,30'
+            , 'content' => 'required|max:1000'
         ]);
 
         if ($validator->fails()) {
@@ -45,15 +45,24 @@ class ApiListController extends Controller
     function putlist(Request $req, $id)
     {
         $validator = Validator::make($req->all(), [
-            'title' => 'required|string',
-            'content' => 'required|string'
+            'title' => 'required|between:3,30'
+            , 'content' => 'required|max:1000'
         ]);
+        
+        // $data = $req->only('title', 'content');
+        // $data['id'] = $id;
+
+        // $validator = Validator::make($data, [
+        // 'id' => 'required|integer|exist:boards'
+        // ,'title' => 'required|between:3,30'
+        // , 'content' => 'required|max:1000'
+        // ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'errorcode' => '1',
                 'msg' => 'Validation error',
-                'errors' => $validator->errors()
+                'errors' => $validator->errors()->all()
             ], 400);
         }
 
