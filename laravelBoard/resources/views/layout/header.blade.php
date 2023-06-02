@@ -4,11 +4,12 @@
 
 @auth
 <nav class="nav">
-    <a href="{{ route('users.logout') }}" class="nav-item {{ Request::is('users/edit') ? '' : 'is-active' }}" active-color="orange">로그아웃</a>
+    
+    <a href="{{ route('boards.index') }}" class="nav-item {{ Request::is('users/edit') ? '' : 'is-active' }}" active-color="red">홈으로</a>
+    <a href="{{ route('users.edit') }}" class="nav-item {{ Request::is('users/edit') ? 'is-active' : '' }}" active-color="blue">회원정보 수정</a>
 
+    <a href="{{ route('users.logout') }}" class="nav-item {{ Request::is('users/logout') ? 'is-active' : '' }}" active-color="green">로그아웃</a>
 
-
-    <a href="{{ route('users.edit') }}" class="nav-item {{ Request::is('users/edit') ? 'is-active' : '' }}" active-color="green">회원정보 수정</a>
 
     <span class="nav-indicator"></span>
 </nav>

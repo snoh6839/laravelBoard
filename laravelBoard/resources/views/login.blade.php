@@ -6,7 +6,13 @@
 
 @section('contents')
 
-    <h2 class="success-msg">{{session()->has('success') ? session('success') : " Login Now "}}</h2>
+@if(session()->has('success'))
+
+    <h2 class="success-msg">{{session('success')}}</h2>
+
+@endif
+
+    {{-- <h2 class="success-msg">{{session()->has('success') ? session('success') : ""}}</h2> --}}
     @include('layout.errorsvalidate')
 
     <form class="contBox" action="{{route('users.login.post')}}" method="post">

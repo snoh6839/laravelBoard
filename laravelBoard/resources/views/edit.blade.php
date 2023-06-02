@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write Page</title>
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+@extends('layout.layout')
 
-</head>
-<body>
-    <header>
-        <h1>BOARD EDIT</h1>
-    </header>
+@section('title', 'Edit Page')
+
+@section('header', 'Edit Page')
+
+@section('contents')
+
     @if(count($errors) > 0)
     @foreach($errors->all() as $error)
     <div class="warning-msg">
@@ -41,5 +35,4 @@
         <button class="button" type="button" onclick="location.href='{{Route('boards.show',['board'=>$data->id])}}'">취소</button>
     </form>
 
-</body>
-</html>
+@endsection

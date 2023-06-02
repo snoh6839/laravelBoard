@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write Page</title>
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+@extends('layout.layout')
 
-</head>
-<body>
-    <header>
-        <h1>BOARD WRITE</h1>
-    </header>
+@section('title', 'Write Page')
+
+@section('header', 'Write Page')
+
+@section('contents')
+
     @include('layout.errorsvalidate')
     <form class="contBox" action="{{route('boards.store')}}" method="post">
 
@@ -30,6 +24,4 @@
         <button class="button" type="submit">작성하기</button>
 
     </form>
-
-</body>
-</html>
+@endsection
