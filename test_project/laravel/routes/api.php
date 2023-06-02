@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/users/{id}', [ApiListController::class, 'userget']);
-Route::post('/users', [ApiListController::class, 'userpost']);
-Route::put('/users/{id}', [ApiListController::class, 'userput']);
-Route::delete('/users/{id}', [ApiListController::class, 'userdelete']);
+Route::get('/users/{id}', [ApiUserController::class, 'userget']);
+Route::post('/users', [ApiUserController::class, 'userpost']);
+Route::put('/users/{id}', [ApiUserController::class, 'userput']);
+Route::delete('/users/{id}', [ApiUserController::class, 'userdelete']);
