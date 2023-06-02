@@ -13,5 +13,8 @@
     @yield('contents')
     @include('layout.footer')
 
+    
+
+
 </body>
 </html>

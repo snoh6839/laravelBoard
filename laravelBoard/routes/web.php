@@ -32,3 +32,4 @@ Route::get('/users/logout', [UserController::class, 'logout'])->name('users.logo
 Route::get('/users/withdraw', [UserController::class, 'withdraw'])->name('users.withdraw');
 Route::get('/users/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::post('/users/edit', [UserController::class, 'editpost'])->name('users.edit.post');
+

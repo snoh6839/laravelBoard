@@ -1,4 +1,4 @@
-
+require('./bootstrap');
 
 
 const indicator = document.querySelector('.nav-indicator');

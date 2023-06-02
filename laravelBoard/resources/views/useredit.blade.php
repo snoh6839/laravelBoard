@@ -1,11 +1,14 @@
 @extends('layout.layout')
 
-@section('title', 'UserEdit')
+@section('title', 'User Edit Page')
+
+
+@section('header', 'User Edit Page')
+
 
 @section('contents')
-<H1>UserEdit</H1>
 @include('layout.errorsvalidate')
-<form action="{{route('users.edit.post')}}" method="post">
+<form class="contBox" action="{{route('users.edit.post')}}" method="post">
     @csrf
     <label for="name">name : </label>
     <input type="text" name="name" id="name" value="{{$data->name}}">
@@ -21,8 +24,9 @@
     <br>
     <label for="passwordchk">After passwordchk : </label>
     <input type="password" name="passwordchk" id="passwordchk">
-    <br><br>
-    <button type="submit">Edit</button>
-    <button type="button" onclick="location.href = '{{route('boards.index')}}'">Cancel</button>
+    <br>
+    <button class="button" type="submit">Edit</button>
+    <button class="button" type="button" onclick="location.href = '{{route('boards.index')}}'">Cancel</button>
 </form>
+
 @endsection

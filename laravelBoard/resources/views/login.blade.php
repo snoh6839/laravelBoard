@@ -18,7 +18,6 @@
         <input type="password" name="password" id="password">
         <br>
         <button class="button" type="submit">Login</button>
-        <button class="button" type="button" onclick="location.href='{{Route('users.registration')}}'">Resistration</button>
 
     </form>
 
